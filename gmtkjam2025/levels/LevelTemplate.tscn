@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b71aeuy3e5tik"]
+
+[ext_resource type="PackedScene" uid="uid://cg575k08ivsdh" path="res://player/head/SnakeHead.tscn" id="1_8d1al"]
+[ext_resource type="Script" uid="uid://c2xkfh071ilnu" path="res://levels/level_template.gd" id="1_uqgy7"]
+[ext_resource type="Script" uid="uid://cu7ghb4pcli5g" path="res://levels/camera_shake.gd" id="3_2x4sj"]
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource("1_uqgy7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(320, 180)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.137255, 0.137255, 1)
+
+[node name="CameraShake" type="Camera2D" parent="."]
+script = ExtResource("3_2x4sj")
+
+[node name="SnakeHead" parent="." instance=ExtResource("1_8d1al")]
+unique_name_in_owner = true
+
+[node name="SnakeParts" type="Node2D" parent="."]

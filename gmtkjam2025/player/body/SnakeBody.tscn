@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwm24andy0f3g"]
+
+[ext_resource type="Texture2D" uid="uid://dlp7hn2h5vw8i" path="res://player/sprites/snake_body_straight.png" id="1_idtl8"]
+[ext_resource type="Script" uid="uid://c8e8efyibnbbk" path="res://player/body/snake_body.gd" id="1_xn872"]
+[ext_resource type="Texture2D" uid="uid://cjvkf0h773bjt" path="res://player/sprites/snake_body_right.png" id="2_leiyx"]
+[ext_resource type="Texture2D" uid="uid://d4kwvmyg8p4k" path="res://player/sprites/snake_body_left.png" id="3_xn872"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xn872"]
+size = Vector2(16, 16)
+
+[node name="SnakeBody" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_xn872")
+
+[node name="SpriteStraight" type="Sprite2D" parent="."]
+texture = ExtResource("1_idtl8")
+
+[node name="SpriteRight" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_leiyx")
+
+[node name="SpriteLeft" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_xn872")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xn872")
