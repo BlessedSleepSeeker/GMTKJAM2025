@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bjo5aluhnveic"]
+
+[ext_resource type="Texture2D" uid="uid://di8i2ccgrd43f" path="res://levels/tiles/textures/wall_tilemap.png" id="1_harju"]
+
+[resource]
+atlas = ExtResource("1_harju")

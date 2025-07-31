@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Snakoban"
-run/main_scene="uid://b71aeuy3e5tik"
+run/main_scene="uid://usjm111enrbc"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -30,6 +30,11 @@ window/stretch/mode="viewport"
 folder_colors={
 "res://player/sprites/": "green"
 }
+
+[global_group]
+
+pushable="Something that can be pushed"
+collectible="Something that can be collected"
 
 [input]
 
@@ -69,7 +74,8 @@ reset={
 2d_physics/layer_1="snake_tail"
 2d_physics/layer_2="snake_body"
 2d_physics/layer_3="obstacle"
-2d_physics/layer_4="collectibles"
+2d_physics/layer_4="collectible"
+2d_physics/layer_5="pushable"
 
 [rendering]
 
