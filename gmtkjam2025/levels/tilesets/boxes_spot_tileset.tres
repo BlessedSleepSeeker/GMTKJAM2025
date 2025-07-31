@@ -1,0 +1,10 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://rms8er5m05td"]
+
+[ext_resource type="PackedScene" uid="uid://cds2sl5qw74vn" path="res://levels/tiles/BaseBoxSpot.tscn" id="1_wgalf"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4xodi"]
+resource_name = "spots"
+scenes/1/scene = ExtResource("1_wgalf")
+
+[resource]
+sources/0 = SubResource("TileSetScenesCollectionSource_4xodi")

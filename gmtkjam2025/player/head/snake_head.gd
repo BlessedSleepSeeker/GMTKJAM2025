@@ -9,9 +9,10 @@ class_name SnakeHead
 
 @export var screen_shake_on_impossible_move: float = 2.5
 
-@onready var sprite: Sprite2D = $Sprite
+@onready var sprite: AnimatedSprite2D = $Sprite
 @onready var obstacle_ray: RayCast2D = $ObstacleRayCast
 @onready var push_ray: RayCast2D = $PushRayCast
+@onready var tail_ray: RayCast2D = $TailRayCast
 
 signal spawn_body(body_scene: PackedScene, position: Vector2, rotation: float, direction: String)
 signal impossible_move(strenght: float)
@@ -55,6 +56,9 @@ func move(direction: String) -> void:
 		if not check_move(direction):
 			impossible_move.emit(screen_shake_on_impossible_move)
 			return
+		if not check_tail(direction):
+			impossible_move.emit(screen_shake_on_impossible_move)
+			return
 		if check_push(direction):
 			push(direction)
 		else:
@@ -85,9 +89,25 @@ func check_push(direction: String) -> bool:
 	push_ray.target_position = movement_actions[direction] * tile_size
 	push_ray.force_raycast_update()
 	if push_ray.is_colliding():
-		print("colliding")
 		return push_ray.get_collider().can_be_pushed(direction)
 	#if we reach here, this is a bug
+	return true
+
+func check_tail(direction: String) -> bool:
+	tail_ray.target_position = movement_actions[direction] * tile_size
+	tail_ray.force_raycast_update()
+	if tail_ray.is_colliding():
+		return check_if_boxes_on_spot()
+	#if we reach here, this is a bug
+	return true
+
+func get_spots() -> Array:
+	return get_tree().get_nodes_in_group("box_spot")
+
+func check_if_boxes_on_spot() -> bool:
+	for spot: BaseBoxSpot in get_spots():
+		if not spot.has_box_on_it:
+			return false
 	return true
 
 func push(direction: String) -> void:

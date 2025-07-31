@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3ape4k2d5y5b"]
+
+[ext_resource type="Script" uid="uid://dg7gb8shlmkly" path="res://hud/animated_rect.gd" id="1_ougc8"]
+
+[node name="AnimatedRect" type="TextureRect"]
+script = ExtResource("1_ougc8")
+
+[node name="Timer" type="Timer" parent="."]

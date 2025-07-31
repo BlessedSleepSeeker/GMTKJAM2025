@@ -1,0 +1,10 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cucyidbx3ps3m"]
+
+[ext_resource type="PackedScene" uid="uid://dmkuupagbmuld" path="res://levels/tiles/BaseCollectible.tscn" id="1_3v5gb"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0r7k6"]
+resource_name = "snake_tail"
+scenes/1/scene = ExtResource("1_3v5gb")
+
+[resource]
+sources/0 = SubResource("TileSetScenesCollectionSource_0r7k6")

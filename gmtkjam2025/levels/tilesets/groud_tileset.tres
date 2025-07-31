@@ -1,13 +1,10 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://21ioic27tl8u"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://21ioic27tl8u"]
 
-[ext_resource type="Texture2D" uid="uid://bjo5aluhnveic" path="res://levels/tiles/textures/tile_atlas.tres" id="1_uansx"]
-[ext_resource type="PackedScene" uid="uid://snadviod86an" path="res://player/tail/SnakeTail.tscn" id="2_j82va"]
-[ext_resource type="PackedScene" uid="uid://dmkuupagbmuld" path="res://levels/tiles/BaseCollectible.tscn" id="3_1mdab"]
-[ext_resource type="PackedScene" uid="uid://dbgny3hvqngnf" path="res://levels/tiles/BaseBox.tscn" id="4_rjrxp"]
+[ext_resource type="Texture2D" uid="uid://bjo5aluhnveic" path="res://levels/tiles/textures/tile_atlas.tres" id="1_hm4hm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j82va"]
 resource_name = "base"
-texture = ExtResource("1_uansx")
+texture = ExtResource("1_hm4hm")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -149,18 +146,6 @@ texture = ExtResource("1_uansx")
 2:4/0/terrains_peering_bit/top_side = 0
 2:4/0/terrains_peering_bit/top_right_corner = 0
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1mdab"]
-resource_name = "snake_parts"
-scenes/1/scene = ExtResource("2_j82va")
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_rjrxp"]
-resource_name = "collectibles"
-scenes/1/scene = ExtResource("3_1mdab")
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jf3af"]
-resource_name = "pushable"
-scenes/1/scene = ExtResource("4_rjrxp")
-
 [resource]
 physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
@@ -168,6 +153,3 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "base_terrain"
 terrain_set_0/terrain_0/color = Color(0.941176, 0.964706, 0.941176, 1)
 sources/0 = SubResource("TileSetAtlasSource_j82va")
-sources/1 = SubResource("TileSetScenesCollectionSource_1mdab")
-sources/2 = SubResource("TileSetScenesCollectionSource_rjrxp")
-sources/3 = SubResource("TileSetScenesCollectionSource_jf3af")

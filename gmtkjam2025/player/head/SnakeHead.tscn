@@ -1,7 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg575k08ivsdh"]
+[gd_scene load_steps=8 format=3 uid="uid://cg575k08ivsdh"]
 
 [ext_resource type="Script" uid="uid://ba1chicd3g2mi" path="res://player/head/snake_head.gd" id="1_ddiq0"]
-[ext_resource type="Texture2D" uid="uid://baydofshyr7c1" path="res://player/sprites/snake_head.png" id="2_xk5vl"]
+[ext_resource type="Texture2D" uid="uid://c3hqmdl51wrt4" path="res://player/sprites/snake_head_sheet.png" id="2_xk5vl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipcte"]
+atlas = ExtResource("2_xk5vl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkdrc"]
+atlas = ExtResource("2_xk5vl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rysl6"]
+atlas = ExtResource("2_xk5vl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_440on"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipcte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkdrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rysl6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ulp21"]
 size = Vector2(16, 16)
@@ -11,8 +40,10 @@ collision_layer = 0
 collision_mask = 9
 script = ExtResource("1_ddiq0")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_xk5vl")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_440on")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ulp21")
@@ -24,6 +55,9 @@ collide_with_areas = true
 
 [node name="PushRayCast" type="RayCast2D" parent="."]
 collision_mask = 16
+collide_with_areas = true
+
+[node name="TailRayCast" type="RayCast2D" parent="."]
 collide_with_areas = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

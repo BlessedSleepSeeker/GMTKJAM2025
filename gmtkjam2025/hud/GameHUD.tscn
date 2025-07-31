@@ -1,0 +1,106 @@
+[gd_scene load_steps=13 format=3 uid="uid://bn2o4iokbn5sx"]
+
+[ext_resource type="Script" uid="uid://bdiv8ljn4dgtt" path="res://hud/game_hud.gd" id="1_2nmbd"]
+[ext_resource type="PackedScene" uid="uid://c3ape4k2d5y5b" path="res://hud/AnimatedRect.tscn" id="1_nv78o"]
+[ext_resource type="Texture2D" uid="uid://bg2u1hwc4hjal" path="res://hud/right_side.png" id="2_f5m1f"]
+[ext_resource type="Texture2D" uid="uid://fq6koiiw3tbc" path="res://hud/frames/hud_right_1.tres" id="3_2nmbd"]
+[ext_resource type="Texture2D" uid="uid://dhmn0gpxalt8t" path="res://hud/frames/hud_right_2.tres" id="3_x46ry"]
+[ext_resource type="Texture2D" uid="uid://b1cl1ykmw22pd" path="res://hud/frames/hud_right_3.tres" id="4_2nmbd"]
+[ext_resource type="Texture2D" uid="uid://bq6qcphrslxe1" path="res://hud/frames/hud_right_4.tres" id="5_i5exo"]
+[ext_resource type="Texture2D" uid="uid://bgyf5qig0b7qd" path="res://hud/frames/hud_right_5.tres" id="6_7eplm"]
+[ext_resource type="Texture2D" uid="uid://bj8i5egor47f2" path="res://hud/frames/hud_right_6.tres" id="7_k86n5"]
+[ext_resource type="FontFile" uid="uid://co1so5i8imvnj" path="res://hud/fonts/8-bit Arcade Out.ttf" id="10_i5exo"]
+[ext_resource type="FontFile" uid="uid://niyl2coex4uh" path="res://hud/fonts/8-bit Arcade In.ttf" id="11_7eplm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x46ry"]
+atlas = ExtResource("2_f5m1f")
+region = Rect2(0, 0, 100, 180)
+
+[node name="GameHud" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2nmbd")
+wins_template = "wins
+%d"
+apples_template = "apples
+%d"
+moves_template = "moves
+%d"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 2
+
+[node name="AnimatedRect" parent="HBoxContainer" instance=ExtResource("1_nv78o")]
+custom_minimum_size = Vector2(100, 180)
+layout_mode = 2
+texture = SubResource("AtlasTexture_x46ry")
+stretch_mode = 2
+frames = Array[Texture]([ExtResource("3_2nmbd"), ExtResource("3_x46ry"), ExtResource("4_2nmbd"), ExtResource("5_i5exo"), ExtResource("6_7eplm"), ExtResource("7_k86n5")])
+frame_delay = 0.7
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(100, 180)
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("10_i5exo")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[wave amp=10.0 freq=1.0]Snekoban[/wave]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Level" type="RichTextLabel" parent="HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("11_7eplm")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Level
+1"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Wins" type="RichTextLabel" parent="HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("11_7eplm")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "wins
+0"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Collectibles" type="RichTextLabel" parent="HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("11_7eplm")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Apples
+0"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Moves" type="RichTextLabel" parent="HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("11_7eplm")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Moves
+0"
+fit_content = true
+horizontal_alignment = 1

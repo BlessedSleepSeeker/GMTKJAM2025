@@ -2,9 +2,9 @@ extends Area2D
 class_name SnakeBody
 
 
-@onready var sprite_straight: Sprite2D = $SpriteStraight
-@onready var sprite_right: Sprite2D = $SpriteRight
-@onready var sprite_left: Sprite2D = $SpriteLeft
+@onready var sprite_straight: AnimatedSprite2D = $SpriteStraight
+@onready var sprite_right: AnimatedSprite2D = $SpriteRight
+@onready var sprite_left: AnimatedSprite2D = $SpriteLeft
 
 func set_turn(turn: String) -> void:
 	if turn == "straight":

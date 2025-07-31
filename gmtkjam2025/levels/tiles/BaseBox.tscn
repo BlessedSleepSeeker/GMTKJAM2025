@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cut6061yiaw5n" path="res://levels/tiles/base_box.gd" id="1_td1xv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhc0g"]
-size = Vector2(14, 14)
+size = Vector2(8, 8)
 
 [node name="BaseBox" type="Area2D" groups=["pushable"]]
 collision_layer = 16
@@ -19,7 +19,7 @@ texture = ExtResource("1_0jwsx")
 
 [node name="DenyRaycast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 16)
-collision_mask = 15
+collision_mask = 7
 collide_with_areas = true
 
 [node name="PushRaycast" type="RayCast2D" parent="."]

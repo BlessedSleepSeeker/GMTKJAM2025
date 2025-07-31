@@ -3,7 +3,7 @@ class_name BaseBox
 
 @export var tile_size: float = 16
 @export var move_animation_speed: float = 0.1
-@export var push_delay: float = 0.1
+@export var push_delay: float = 0.05
 
 @onready var deny_raycast: RayCast2D = $DenyRaycast
 @onready var push_raycast: RayCast2D = $PushRaycast
@@ -33,5 +33,6 @@ func push(direction: String) -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(self, "position", position + directions[direction] * tile_size, move_animation_speed).set_trans(Tween.TRANS_CUBIC)
 	if push_raycast.is_colliding():
-		await get_tree().create_timer(push_delay).timeout
-		push_raycast.get_collider().push(direction)
+		var collider: BaseBox = push_raycast.get_collider()
+		#await get_tree().create_timer(push_delay).timeout
+		collider.push(direction)
