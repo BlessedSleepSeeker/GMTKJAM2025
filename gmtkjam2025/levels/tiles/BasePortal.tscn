@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7lwh5s144vmb"]
+
+[ext_resource type="Script" uid="uid://ds021pfe5417k" path="res://levels/tiles/base_portal.gd" id="1_vqxby"]
+[ext_resource type="Texture2D" uid="uid://hqg4cf2e8hnp" path="res://levels/tiles/textures/portal_base.png" id="2_njerw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njerw"]
+size = Vector2(8, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h35jn"]
+atlas = ExtResource("2_njerw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsh0s"]
+atlas = ExtResource("2_njerw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp156"]
+atlas = ExtResource("2_njerw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqxby"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h35jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsh0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vp156")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="BasePortal" type="Area2D"]
+script = ExtResource("1_vqxby")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_njerw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vqxby")
+autoplay = "default"
+frame_progress = 0.990696

@@ -20,12 +20,15 @@ var collectibles_history: Array[Dictionary] = []
 var total_moves_done: int = 0
 var total_collectibles_eaten: int = 0
 
+var take_control_from_player: bool = false
+
 func _ready():
 	snake_head.spawn_body.connect(spawn_body)
 	snake_head.save_move.connect(save_state)
 	snake_head.impossible_move.connect(on_impossible_move)
 	snake_head.ate_tail.connect(finish_level)
 	snake_head.ate_collectible.connect(check_collectible_amount)
+	check_collectible_amount()
 
 
 func spawn_body(scene: PackedScene, _position: Vector2, _rotation: float, _turning: String) -> void:
@@ -123,15 +126,18 @@ func get_spots() -> Array:
 	return get_tree().get_nodes_in_group("box_spot")
 
 func _unhandled_input(_event):
+	if take_control_from_player:
+		return
 	if Input.is_action_just_pressed("cancel"):
 		cancel_last_move()
 
 func finish_level() -> void:
 	if state_history.size() > 0:
+		take_control_from_player = true
 		finished.emit(count_eaten_apples())
 
 func check_collectible_amount() -> void:
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.03).timeout
 	currently_eaten_apples.emit(count_eaten_apples())
 
 func count_eaten_apples() -> int:

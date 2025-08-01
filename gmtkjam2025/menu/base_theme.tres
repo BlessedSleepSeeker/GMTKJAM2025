@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://du4xhpvf3ifj2"]
+
+[ext_resource type="FontFile" uid="uid://niyl2coex4uh" path="res://hud/fonts/8-bit Arcade In.ttf" id="1_r1lxo"]
+[ext_resource type="FontFile" uid="uid://co1so5i8imvnj" path="res://hud/fonts/8-bit Arcade Out.ttf" id="2_qstqa"]
+[ext_resource type="Texture2D" uid="uid://cgptnyjq23d63" path="res://menu/sprites/clicked_texture.png" id="3_d1a2e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bn4pb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d1a2e"]
+texture = ExtResource("3_d1a2e")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d1a2e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2jghp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qstqa"]
+
+[resource]
+Button/colors/font_pressed_color = Color(0.616667, 0, 1, 1)
+Button/fonts/font = ExtResource("1_r1lxo")
+Button/styles/disabled = SubResource("StyleBoxEmpty_bn4pb")
+Button/styles/focus = SubResource("StyleBoxTexture_d1a2e")
+Button/styles/hover = SubResource("StyleBoxEmpty_d1a2e")
+Button/styles/normal = SubResource("StyleBoxEmpty_2jghp")
+Button/styles/pressed = SubResource("StyleBoxEmpty_qstqa")
+Label/fonts/font = ExtResource("1_r1lxo")
+RichTextLabel/fonts/bold_font = ExtResource("2_qstqa")
+RichTextLabel/fonts/normal_font = ExtResource("1_r1lxo")

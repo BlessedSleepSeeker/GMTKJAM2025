@@ -1,8 +1,8 @@
 extends Camera2D
 class_name CameraShake
 
-@export var decay = 0.8
-@export var max_offset = Vector2(100, 75)
+@export var decay = 7
+@export var max_offset = Vector2(5, 3)
 @export var max_roll = 0.1
 
 var trauma: float = 0.0

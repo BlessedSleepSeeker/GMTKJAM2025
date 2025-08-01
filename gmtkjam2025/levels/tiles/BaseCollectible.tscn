@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqglohmslxpfm" path="res://levels/tiles/textures/collectible.png" id="1_r0l5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8b74c"]
-size = Vector2(14, 14)
+size = Vector2(4, 4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2gr5"]
 atlas = ExtResource("1_r0l5i")
@@ -94,6 +94,7 @@ script = ExtResource("1_e2gr5")
 shape = SubResource("RectangleShape2D_8b74c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.83, 0, 0, 1)
 sprite_frames = SubResource("SpriteFrames_in4j2")
 animation = &"idle"
 autoplay = "idle"

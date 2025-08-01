@@ -13,6 +13,7 @@ class_name SnakeHead
 @onready var obstacle_ray: RayCast2D = $ObstacleRayCast
 @onready var push_ray: RayCast2D = $PushRayCast
 @onready var tail_ray: RayCast2D = $TailRayCast
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 signal spawn_body(body_scene: PackedScene, position: Vector2, rotation: float, direction: String)
 signal impossible_move(strenght: float)
@@ -45,8 +46,12 @@ func _ready():
 	position.x -= Vector2.ONE.x * tile_size / 2
 	position.y += Vector2.ONE.y * tile_size / 2
 
+
+var take_control_from_player: bool = false
 var is_moving: bool = false
 func _unhandled_input(_event):
+	if take_control_from_player:
+		return
 	for action in movement_actions:
 		if Input.is_action_pressed(action) && not is_moving:
 			move(action)
@@ -98,7 +103,6 @@ func check_tail(direction: String) -> bool:
 	tail_ray.force_raycast_update()
 	if tail_ray.is_colliding():
 		return check_if_boxes_on_spot()
-	#if we reach here, this is a bug
 	return true
 
 func get_spots() -> Array:
@@ -142,6 +146,8 @@ func set_turn(direction: String) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is SnakeTail:
+		take_control_from_player = true
+		animation_player.play("victory")
 		ate_tail.emit()
 	if area is BaseCollectible:
 		ate_collectible.emit()

@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cpho3goprecg5"]
+
+[ext_resource type="Shader" uid="uid://c8p8gjgteo0we" path="res://shaders/transition.gdshader" id="1_rahjc"]
+
+[resource]
+shader = ExtResource("1_rahjc")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 16.0

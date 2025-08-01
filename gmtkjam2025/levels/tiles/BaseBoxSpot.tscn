@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bm4dy4lxkd2qs" path="res://levels/tiles/textures/box_spot.png" id="2_bj8w7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iepxj"]
-size = Vector2(8, 8)
+size = Vector2(2, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qetyy"]
 atlas = ExtResource("2_bj8w7")
@@ -44,6 +44,7 @@ script = ExtResource("1_uy7v0")
 shape = SubResource("RectangleShape2D_iepxj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.93, 0.868, 0, 1)
 sprite_frames = SubResource("SpriteFrames_4lptg")
 autoplay = "default"
 frame_progress = 0.48974

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cut6061yiaw5n" path="res://levels/tiles/base_box.gd" id="1_td1xv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhc0g"]
-size = Vector2(8, 8)
+size = Vector2(2, 2)
 
 [node name="BaseBox" type="Area2D" groups=["pushable"]]
 collision_layer = 16
@@ -15,6 +15,7 @@ script = ExtResource("1_td1xv")
 shape = SubResource("RectangleShape2D_xhc0g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.93, 0.868, 0, 1)
 texture = ExtResource("1_0jwsx")
 
 [node name="DenyRaycast" type="RayCast2D" parent="."]

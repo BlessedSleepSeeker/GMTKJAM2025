@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsyci3effs3uk"]
+
+[ext_resource type="Script" uid="uid://decp3rb1446f8" path="res://hud/debug_hud.gd" id="1_goc2h"]
+[ext_resource type="FontFile" uid="uid://niyl2coex4uh" path="res://hud/fonts/8-bit Arcade In.ttf" id="2_54v62"]
+
+[node name="DebugHud" type="MarginContainer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_goc2h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="SpotOK" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_54v62")
+text = "spot ok"

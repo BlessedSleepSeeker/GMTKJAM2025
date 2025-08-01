@@ -93,7 +93,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xn872"]
-size = Vector2(16, 16)
+size = Vector2(4, 4)
 
 [node name="SnakeBody" type="Area2D"]
 collision_layer = 2
@@ -101,6 +101,7 @@ collision_mask = 0
 script = ExtResource("1_xn872")
 
 [node name="SpriteStraight" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.2185, 0.69, 0, 1)
 sprite_frames = SubResource("SpriteFrames_leiyx")
 animation = &"idle"
 autoplay = "idle"
@@ -108,12 +109,14 @@ frame_progress = 0.956642
 
 [node name="SpriteRight" type="AnimatedSprite2D" parent="."]
 visible = false
+modulate = Color(0.2185, 0.69, 0, 1)
 sprite_frames = SubResource("SpriteFrames_xn872")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="SpriteLeft" type="AnimatedSprite2D" parent="."]
 visible = false
+modulate = Color(0.2185, 0.69, 0, 1)
 sprite_frames = SubResource("SpriteFrames_t3tyt")
 animation = &"idle"
 autoplay = "idle"

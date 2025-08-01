@@ -71,3 +71,5 @@ cannot eat anything else than your tail. Every time the head move, the body grow
 ## Phoenix
 
 Platformer where you incarnate a phoenix that goes through 3 states of life really fast : baby, adult, elder, then death, rebirth and repeat. Each state has varied movement.
+
+## FEATURE IDEA FOR SNEKOBAN
