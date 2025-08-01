@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg575k08ivsdh"]
+[gd_scene load_steps=13 format=3 uid="uid://cg575k08ivsdh"]
 
 [ext_resource type="Script" uid="uid://ba1chicd3g2mi" path="res://player/head/snake_head.gd" id="1_ddiq0"]
 [ext_resource type="Texture2D" uid="uid://c3hqmdl51wrt4" path="res://player/sprites/snake_head_sheet.png" id="2_xk5vl"]
+[ext_resource type="PackedScene" uid="uid://b781jlikd2531" path="res://sounds/RandomStreamPlayer.tscn" id="3_440on"]
+[ext_resource type="AudioStream" uid="uid://dvmc2p2fmluqb" path="res://sounds/sfx/miam_queue.wav" id="7_curtm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipcte"]
 atlas = ExtResource("2_xk5vl")
@@ -34,6 +36,45 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ulp21"]
 size = Vector2(4, 4)
+
+[sub_resource type="Animation" id="Animation_ipcte"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_xk5vl"]
 resource_name = "victory"
@@ -76,45 +117,6 @@ tracks/2/keys = {
 "values": [0.0, 0.349066, -0.349066, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_ipcte"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:skew")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kkdrc"]
 _data = {
 &"RESET": SubResource("Animation_ipcte"),
@@ -147,10 +149,22 @@ collide_with_areas = true
 [node name="TailRayCast" type="RayCast2D" parent="."]
 collide_with_areas = true
 
+[node name="PortalRayCast" type="RayCast2D" parent="."]
+collision_mask = 64
+collide_with_areas = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_kkdrc")
 }
+
+[node name="RandomMovePlayer" parent="." instance=ExtResource("3_440on")]
+bus = &"SFX"
+no_repeat = false
+
+[node name="TailAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_curtm")
+bus = &"SFX"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

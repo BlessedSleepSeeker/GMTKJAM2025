@@ -3,6 +3,9 @@ class_name LevelManager
 
 @export var level_list: Array[PackedScene] = []
 
+@onready var bgm_player: AudioStreamPlayer = $BGMPlayer
+@onready var reset_player: AudioStreamPlayer = $ResetPlayer
+
 signal level_started(number: String)
 signal level_finished(level_name: String, collectibles: int)
 signal removing_level
@@ -24,9 +27,10 @@ var current_level_index: int = 0:
 var current_level: Level = null
 
 func _ready():
-	load_level()
+	bgm_player.play()
+	load_level(true)
 
-func load_level() -> void:
+func load_level(mute: bool = false) -> void:
 	var new_level: Level = level_list[current_level_index].instantiate()
 	new_level.finished.connect(progress_level)
 	new_level.move_done.connect(add_player_move.emit.bind(1))
@@ -36,7 +40,7 @@ func load_level() -> void:
 	current_level = new_level
 	await get_tree().process_frame
 	level_started.emit(current_level_index)
-	play_transition.emit(false)
+	play_transition.emit(false, mute)
 	take_control_from_player = false
 
 func remove_level() -> void:
@@ -44,8 +48,9 @@ func remove_level() -> void:
 
 func reset_level() -> void:
 	take_control_from_player = true
+	reset_player.play()
 	remove_level()
-	load_level()
+	load_level(true)
 
 func progress_level(collectibles: int) -> void:
 	take_control_from_player = true
@@ -57,8 +62,9 @@ func progress_level(collectibles: int) -> void:
 	load_level()
 
 func skip_level() -> void:
-	removing_level.emit()
 	take_control_from_player = true
+	removing_level.emit()
+	await get_tree().create_timer(1.7).timeout
 	current_level_index += 1
 	remove_level()
 	load_level()
@@ -69,6 +75,8 @@ func _unhandled_input(_event):
 	if Input.is_action_just_pressed("reset"):
 		remove_player_move.emit(current_level.total_moves_done)
 		reset_level()
+	if Input.is_action_just_pressed("skip_level"):
+		skip_level()
 
 func currently_eaten_apples(amount: int) -> void:
 	ajust_apples.emit(amount)

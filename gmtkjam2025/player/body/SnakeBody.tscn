@@ -93,7 +93,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xn872"]
-size = Vector2(4, 4)
+size = Vector2(14, 14)
 
 [node name="SnakeBody" type="Area2D"]
 collision_layer = 2

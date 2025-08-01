@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbgny3hvqngnf"]
+[gd_scene load_steps=6 format=3 uid="uid://dbgny3hvqngnf"]
 
 [ext_resource type="Texture2D" uid="uid://lykfdt56dd6q" path="res://levels/tiles/textures/box.png" id="1_0jwsx"]
 [ext_resource type="Script" uid="uid://cut6061yiaw5n" path="res://levels/tiles/base_box.gd" id="1_td1xv"]
+[ext_resource type="AudioStream" uid="uid://bfnyiuo73j0he" path="res://sounds/sfx/move_box.wav" id="3_4600w"]
+[ext_resource type="PackedScene" uid="uid://b781jlikd2531" path="res://sounds/RandomStreamPlayer.tscn" id="3_nbioh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhc0g"]
 size = Vector2(2, 2)
@@ -27,3 +29,8 @@ collide_with_areas = true
 target_position = Vector2(0, 16)
 collision_mask = 16
 collide_with_areas = true
+
+[node name="RandomStreamPlayer" parent="." instance=ExtResource("3_nbioh")]
+bus = &"SFX"
+streams = Array[AudioStream]([ExtResource("3_4600w")])
+no_repeat = false

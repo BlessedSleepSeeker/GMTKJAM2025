@@ -1,16 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmh6n3tw2cg7x"]
+[gd_scene load_steps=14 format=3 uid="uid://bmh6n3tw2cg7x"]
 
 [ext_resource type="Script" uid="uid://cdpbdhjt4drk4" path="res://levels/level_manager.gd" id="1_qim6b"]
 [ext_resource type="PackedScene" uid="uid://by0fsbog3ruyd" path="res://levels/list/Level8.tscn" id="2_8e4sf"]
 [ext_resource type="PackedScene" uid="uid://usjm111enrbc" path="res://levels/list/Level1.tscn" id="2_gi8jp"]
+[ext_resource type="PackedScene" uid="uid://d0d4b6r8d802g" path="res://levels/list/Level10.tscn" id="2_n31u4"]
 [ext_resource type="PackedScene" uid="uid://bu47p8xvl4env" path="res://levels/list/Level9.tscn" id="2_ngbb3"]
 [ext_resource type="PackedScene" uid="uid://b2ylx34hp0epw" path="res://levels/list/Level4.tscn" id="2_skpou"]
+[ext_resource type="PackedScene" uid="uid://bcunttvp6u6wv" path="res://levels/list/LevelThankYou.tscn" id="2_uylu8"]
 [ext_resource type="PackedScene" uid="uid://d28h8ltbnbfsf" path="res://levels/list/Level6.tscn" id="2_v4u2h"]
 [ext_resource type="PackedScene" uid="uid://csrgv7qmisf1l" path="res://levels/list/Level7.tscn" id="2_wg07h"]
 [ext_resource type="PackedScene" uid="uid://dajopr5fahrfa" path="res://levels/list/Level2.tscn" id="3_gi8jp"]
 [ext_resource type="PackedScene" uid="uid://iq7er3cruc8b" path="res://levels/list/Level3.tscn" id="4_yvu2n"]
 [ext_resource type="PackedScene" uid="uid://7e5mtdhl3ntk" path="res://levels/list/Level5.tscn" id="6_v4u2h"]
+[ext_resource type="AudioStream" uid="uid://8eer1lyykmib" path="res://sounds/sfx/reset.wav" id="12_475b4"]
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_qim6b")
-level_list = Array[PackedScene]([ExtResource("2_ngbb3"), ExtResource("2_gi8jp"), ExtResource("4_yvu2n"), ExtResource("3_gi8jp"), ExtResource("2_skpou"), ExtResource("6_v4u2h"), ExtResource("2_v4u2h"), ExtResource("2_wg07h"), ExtResource("2_8e4sf")])
+level_list = Array[PackedScene]([ExtResource("2_n31u4"), ExtResource("2_gi8jp"), ExtResource("4_yvu2n"), ExtResource("3_gi8jp"), ExtResource("2_skpou"), ExtResource("6_v4u2h"), ExtResource("2_v4u2h"), ExtResource("2_wg07h"), ExtResource("2_8e4sf"), ExtResource("2_ngbb3"), ExtResource("2_uylu8")])
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="ResetPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_475b4")
+bus = &"SFX"

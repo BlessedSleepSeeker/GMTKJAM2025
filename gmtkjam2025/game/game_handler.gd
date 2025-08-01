@@ -7,6 +7,8 @@ class_name GameHandler
 @onready var hud: GameHUD = %GameHud
 @onready var debug_hud: DebugHUD = %DebugHud
 @onready var transition_rect: ColorRect = %TransitionRect
+@onready var level_in_stream: AudioStreamPlayer = $LevelInStream
+@onready var level_out_stream: AudioStreamPlayer = $LevelOutStream
 
 var total_level: int = 0
 var total_apples: int = 0
@@ -42,6 +44,13 @@ func remove_moves(amount: int) -> void:
 	total_moves -= amount
 	hud.update_moves(total_moves)
 
-func transition(direction: bool) -> void:
+func transition(direction: bool, mute: bool = false) -> void:
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(transition_rect.material, "shader_parameter/progress", 1 if direction else 0, transition_speed).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	await get_tree().create_timer(0.7).timeout
+	if mute:
+		return
+	if direction:
+		level_in_stream.play()
+	else:
+		level_out_stream.play()

@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bljvtgw65utvv"]
+[gd_scene load_steps=9 format=4 uid="uid://bljvtgw65utvv"]
 
 [ext_resource type="Theme" uid="uid://du4xhpvf3ifj2" path="res://menu/base_theme.tres" id="1_0gkbj"]
 [ext_resource type="Script" uid="uid://bskskr0plcsag" path="res://menu/main_menu.gd" id="2_ciyvu"]
+[ext_resource type="AudioStream" uid="uid://db4btocvxj0yg" path="res://sounds/music/ProjectSnek_Major.ogg" id="3_rbtx8"]
+[ext_resource type="TileSet" uid="uid://21ioic27tl8u" path="res://levels/tilesets/groud_tileset.tres" id="4_wn5o1"]
+[ext_resource type="TileSet" uid="uid://bmsqc6wghc2nc" path="res://levels/tilesets/snake_textures.tres" id="5_kh61s"]
+[ext_resource type="TileSet" uid="uid://cucyidbx3ps3m" path="res://levels/tilesets/collectibles_tileset.tres" id="6_i4dmh"]
+[ext_resource type="TileSet" uid="uid://cktqjonxsaeyi" path="res://levels/tilesets/boxes_tileset.tres" id="7_cg7rj"]
+[ext_resource type="TileSet" uid="uid://rms8er5m05td" path="res://levels/tilesets/boxes_spot_tileset.tres" id="8_usddi"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -75,6 +81,36 @@ flat = true
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rbtx8")
+autoplay = true
+bus = &"Music"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.262745)
+tile_map_data = PackedByteArray("AAACAAIAAAAAAAEAAAACAAMAAAADAAIAAAABAAMAAAABAAAAAAABAAQAAAADAAEAAAABAAUAAAADAAEAAAABAAYAAAABAAIAAAACAAYAAAADAAAAAAACAAcAAAADAAEAAAACAAgAAAABAAIAAAADAAgAAAAFAAAAAAADAAkAAAAAAAIAAAAEAAgAAAAFAAIAAAAEAAcAAAABAAAAAAAFAAcAAAADAAAAAAAFAAgAAAAGAAEAAAAOAAcAAAABAAEAAAAOAAgAAAABAAIAAAAPAAgAAAAFAAAAAAAQAAgAAAACAAIAAAARAAgAAAADAAIAAAARAAcAAAABAAAAAAASAAcAAAADAAIAAAASAAMAAAABAAIAAAASAAIAAAAAAAEAAAASAAAAAAADAAIAAAASAP//AAABAAEAAAASAP7/AAAAAAEAAAAFAAkAAAABAAIAAAAGAAkAAAADAAAAAAAGAAoAAAABAAIAAAAHAAoAAAADAAAAAAAHAAsAAAAAAAIAAAAPAAkAAAABAAIAAAAQAAkAAAADAAAAAAAQAAoAAAADAAEAAAARAAsAAAACAAIAAAASAAsAAAABAAMAAAAQAAsAAAABAAIAAAAOAAYAAAAAAAEAAAARAAAAAAACAAAAAAAJAP//AAABAAEAAAAJAP7/AAADAAAAAAAIAP7/AAAAAAMAAAAFAP//AAABAAMAAAAEAP//AAABAAAAAAAEAAAAAAAAAAIAAAAQAAAAAAABAAIAAAAQAP//AAADAAAAAAAPAP//AAACAAIAAAAOAP//AAACAAIAAAANAP//AAABAAAAAAANAAAAAAADAAIAAAAMAAAAAAACAAAAAAALAAAAAAACAAIAAAAKAAAAAAACAAIAAAAJAAAAAAABAAIAAAASAAYAAAADAAEAAAASAAUAAAABAAAAAAATAAUAAAADAAIAAAATAAQAAAADAAEAAAATAAMAAAADAAAAAAAQAAQAAAAAAAEAAAAQAAUAAAAAAAIAAAA=")
+tile_set = ExtResource("4_wn5o1")
+
+[node name="TileMapSnake" type="TileMapLayer" parent="."]
+modulate = Color(0.2185, 0.69, 0, 0.262745)
+tile_map_data = PackedByteArray("AAALAAQAAQAAAAEAAFAKAAQAAQAAAAEAAFAJAAQAAQAAAAEAAFAIAAQAAQAAAAEAAFAHAAQAAQAAAAEAAFAMAAQAAQAAAAAAAFAGAAQAAQAAAAQAAAAGAAUAAQAAAAEAAAAGAAYAAQAAAAQAADAFAAYAAQAAAAIAAFA=")
+tile_set = ExtResource("5_kh61s")
+
+[node name="TileMapCollectibles" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.262745)
+tile_map_data = PackedByteArray("AAARAAQAAAAAAAAAAQAEAAQAAAAAAAAAAQAIAAEAAAAAAAAAAQAPAAAAAAAAAAAAAQAOAAoAAAAAAAAAAQA=")
+tile_set = ExtResource("6_i4dmh")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.262745)
+tile_map_data = PackedByteArray("AAAPAAYAAAAAAAAAAQACAAQAAAAAAAAAAQABAAoAAAAAAAAAAQA=")
+tile_set = ExtResource("7_cg7rj")
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.262745)
+tile_map_data = PackedByteArray("AAAPAAcAAAAAAAAAAQAFAAoAAAAAAAAAAQACAAQAAAAAAAAAAQA=")
+tile_set = ExtResource("8_usddi")
 
 [connection signal="focus_entered" from="VBoxContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_focus_exited"]

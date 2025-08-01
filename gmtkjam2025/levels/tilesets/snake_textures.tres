@@ -1,0 +1,39 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bmsqc6wghc2nc"]
+
+[ext_resource type="Texture2D" uid="uid://3egku2a7jsxt" path="res://player/sprites/snake_spritesheet.png" id="1_c4afk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gfn61"]
+texture = ExtResource("1_c4afk")
+0:0/animation_columns = 3
+0:0/animation_mode = 1
+0:0/animation_frame_0/duration = 0.3
+0:0/animation_frame_1/duration = 0.3
+0:0/animation_frame_2/duration = 0.3
+0:0/0 = 0
+0:1/animation_columns = 3
+0:1/animation_mode = 1
+0:1/animation_frame_0/duration = 0.3
+0:1/animation_frame_1/duration = 0.3
+0:1/animation_frame_2/duration = 0.3
+0:1/0 = 0
+0:2/animation_columns = 3
+0:2/animation_mode = 1
+0:2/animation_frame_0/duration = 0.3
+0:2/animation_frame_1/duration = 0.3
+0:2/animation_frame_2/duration = 0.3
+0:2/0 = 0
+0:3/animation_columns = 3
+0:3/animation_mode = 1
+0:3/animation_frame_0/duration = 0.3
+0:3/animation_frame_1/duration = 0.3
+0:3/animation_frame_2/duration = 0.3
+0:3/0 = 0
+0:4/animation_columns = 3
+0:4/animation_mode = 1
+0:4/animation_frame_0/duration = 0.3
+0:4/animation_frame_1/duration = 0.3
+0:4/animation_frame_2/duration = 0.3
+0:4/0 = 0
+
+[resource]
+sources/1 = SubResource("TileSetAtlasSource_gfn61")

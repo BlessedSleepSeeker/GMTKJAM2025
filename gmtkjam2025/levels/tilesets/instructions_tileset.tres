@@ -91,6 +91,18 @@ texture = ExtResource("5_wtmgv")
 0:6/animation_frame_1/duration = 0.3
 0:6/animation_frame_2/duration = 0.3
 0:6/0 = 0
+0:7/animation_columns = 3
+0:7/animation_mode = 1
+0:7/animation_frame_0/duration = 0.3
+0:7/animation_frame_1/duration = 0.3
+0:7/animation_frame_2/duration = 0.3
+0:7/0 = 0
+0:8/animation_columns = 3
+0:8/animation_mode = 1
+0:8/animation_frame_0/duration = 0.3
+0:8/animation_frame_1/duration = 0.3
+0:8/animation_frame_2/duration = 0.3
+0:8/0 = 0
 
 [resource]
 sources/0 = SubResource("TileSetAtlasSource_pjwoa")

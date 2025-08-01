@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtp80boceen3i"]
+[gd_scene load_steps=9 format=3 uid="uid://dtp80boceen3i"]
 
 [ext_resource type="PackedScene" uid="uid://bmh6n3tw2cg7x" path="res://levels/LevelManager.tscn" id="1_0wu1s"]
 [ext_resource type="Script" uid="uid://ccjocr6rkrs3u" path="res://game/game_handler.gd" id="1_b2qq7"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dsyci3effs3uk" path="res://hud/DebugHUD.tscn" id="3_q7y7l"]
 [ext_resource type="Material" uid="uid://b8csdnvysykx1" path="res://shaders/crt.tres" id="5_qwi0t"]
 [ext_resource type="Material" uid="uid://cpho3goprecg5" path="res://shaders/transition.tres" id="6_d5qid"]
+[ext_resource type="AudioStream" uid="uid://rlyd7yawtqtf" path="res://sounds/sfx/boop_boop_boop.wav" id="7_dk167"]
+[ext_resource type="AudioStream" uid="uid://bp66hbtpmr06x" path="res://sounds/sfx/oob_oob_oob.wav" id="8_lvidi"]
 
 [node name="GameHandler" type="Node"]
 script = ExtResource("1_b2qq7")
@@ -45,3 +47,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="LevelInStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_dk167")
+bus = &"SFX"
+
+[node name="LevelOutStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_lvidi")
+bus = &"SFX"

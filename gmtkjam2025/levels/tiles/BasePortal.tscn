@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7lwh5s144vmb"]
+[gd_scene load_steps=10 format=3 uid="uid://c7lwh5s144vmb"]
 
 [ext_resource type="Script" uid="uid://ds021pfe5417k" path="res://levels/tiles/base_portal.gd" id="1_vqxby"]
 [ext_resource type="Texture2D" uid="uid://hqg4cf2e8hnp" path="res://levels/tiles/textures/portal_base.png" id="2_njerw"]
+[ext_resource type="PackedScene" uid="uid://b781jlikd2531" path="res://sounds/RandomStreamPlayer.tscn" id="3_vp156"]
+[ext_resource type="AudioStream" uid="uid://bor1tchr7nfpi" path="res://sounds/sfx/warp/warp_2.wav" id="5_l02og"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njerw"]
 size = Vector2(8, 1)
@@ -36,13 +38,38 @@ animations = [{
 }]
 
 [node name="BasePortal" type="Area2D"]
+collision_layer = 64
+collision_mask = 0
 script = ExtResource("1_vqxby")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_njerw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 5)
 sprite_frames = SubResource("SpriteFrames_vqxby")
 autoplay = "default"
 frame_progress = 0.990696
+
+[node name="Out" type="Marker2D" parent="."]
+position = Vector2(0, -7)
+
+[node name="ObstacleRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, -16)
+collision_mask = 6
+collide_with_areas = true
+
+[node name="PushRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, -16)
+collision_mask = 16
+collide_with_areas = true
+
+[node name="TailRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, -16)
+collide_with_areas = true
+
+[node name="RandomStreamPlayer" parent="." instance=ExtResource("3_vp156")]
+bus = &"SFX"
+streams = Array[AudioStream]([ExtResource("5_l02og")])
+no_repeat = false

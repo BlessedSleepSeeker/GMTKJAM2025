@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=4 uid="uid://bcunttvp6u6wv"]
+
+[ext_resource type="Script" uid="uid://c2xkfh071ilnu" path="res://levels/level_template.gd" id="1_sq8m2"]
+[ext_resource type="Script" uid="uid://cu7ghb4pcli5g" path="res://levels/camera_shake.gd" id="2_pa6jp"]
+[ext_resource type="PackedScene" uid="uid://cg575k08ivsdh" path="res://player/head/SnakeHead.tscn" id="3_fn7ah"]
+[ext_resource type="TileSet" uid="uid://21ioic27tl8u" path="res://levels/tilesets/groud_tileset.tres" id="4_5x01c"]
+[ext_resource type="TileSet" uid="uid://cktqjonxsaeyi" path="res://levels/tilesets/boxes_tileset.tres" id="5_505ac"]
+[ext_resource type="TileSet" uid="uid://rms8er5m05td" path="res://levels/tilesets/boxes_spot_tileset.tres" id="6_stbbb"]
+[ext_resource type="TileSet" uid="uid://cucyidbx3ps3m" path="res://levels/tilesets/collectibles_tileset.tres" id="7_fwvyq"]
+[ext_resource type="TileSet" uid="uid://ds7w1wpayltr7" path="res://levels/tilesets/snake_tail_tileset.tres" id="8_8oy74"]
+[ext_resource type="TileSet" uid="uid://jcwvhc5ibt30" path="res://levels/tilesets/instructions_tileset.tres" id="9_w7ln1"]
+[ext_resource type="PackedScene" uid="uid://bvjrndkapokan" path="res://sounds/RandomBonkPlayer.tscn" id="10_8ora1"]
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource("1_sq8m2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(320, 180)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.137255, 0.137255, 1)
+
+[node name="CameraShake" type="Camera2D" parent="."]
+script = ExtResource("2_pa6jp")
+
+[node name="SnakeHead" parent="." instance=ExtResource("3_fn7ah")]
+unique_name_in_owner = true
+position = Vector2(-55, -9)
+
+[node name="SnakeParts" type="Node2D" parent="."]
+
+[node name="GroundLayer" type="TileMapLayer" parent="."]
+modulate = Color(0.83, 0, 0, 1)
+position = Vector2(-48, 0)
+tile_map_data = PackedByteArray("AAD+/wAAAAAGAAEAAAD//wEAAAAFAAAAAAAAAAAAAAAEAAEAAAD+/wEAAAABAAIAAAAAAAEAAAADAAIAAAD+////AAAAAAEAAAAAAP//AAAAAAEAAAD9/wAAAAAAAAMAAAABAAAAAAABAAMAAAD//wIAAAAAAAIAAAA=")
+tile_set = ExtResource("4_5x01c")
+
+[node name="BoxesLayer" type="TileMapLayer" parent="."]
+position = Vector2(-48, 0)
+tile_set = ExtResource("5_505ac")
+
+[node name="BoxesSpotLayer" type="TileMapLayer" parent="."]
+position = Vector2(-48, 0)
+tile_set = ExtResource("6_stbbb")
+
+[node name="CollectiblesLayer" type="TileMapLayer" parent="."]
+position = Vector2(-48, 0)
+tile_map_data = PackedByteArray("AAD+////AAAAAAAAAQD9/wAAAAAAAAAAAQD+/wEAAAAAAAAAAQD//wIAAAAAAAAAAQAAAAEAAAAAAAAAAQABAAAAAAAAAAAAAQAAAP//AAAAAAAAAQD7////AAAAAAAAAQD7//7/AAAAAAAAAQD7//3/AAAAAAAAAQD6//z/AAAAAAAAAQD6//3/AAAAAAAAAQD6//7/AAAAAAAAAQD5//3/AAAAAAAAAQD8//3/AAAAAAAAAQD8//7/AAAAAAAAAQD8//z/AAAAAAAAAQD9//3/AAAAAAAAAQADAP//AAAAAAAAAQADAP7/AAAAAAAAAQAEAP7/AAAAAAAAAQACAP7/AAAAAAAAAQABAP3/AAAAAAAAAQACAP3/AAAAAAAAAQADAP3/AAAAAAAAAQAEAP3/AAAAAAAAAQAFAP3/AAAAAAAAAQACAPz/AAAAAAAAAQAEAPz/AAAAAAAAAQA=")
+tile_set = ExtResource("7_fwvyq")
+
+[node name="SnakeTailLayer" type="TileMapLayer" parent="."]
+position = Vector2(-48, 0)
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAQA=")
+tile_set = ExtResource("8_8oy74")
+
+[node name="TileMapText" type="TileMapLayer" parent="."]
+modulate = Color(1, 0, 0.966667, 1)
+position = Vector2(-48, 0)
+tile_map_data = PackedByteArray("AAD7//z/BAAAAAIAAAD8//z/BAAAAAYAAAD9//z/BAAAAAEAAAACAPz/BAAAAAQAAAD///z/BAAAAAcAAAD+//z/BAAAAAgAAAD+/wAABAAAAAUAAAAAAAAABAAAAAUAAAD//wEABAAAAAUAAAD7/wQABAAAAAgAAAD+/wQABAAAAAIAAAD//wQABAAAAAQAADACAAQABAAAAAUAAAADAAQABAAAAAcAAAAFAAQABAAAAAMAAAAEAAQABAAAAAIAAAA=")
+tile_set = ExtResource("9_w7ln1")
+
+[node name="Portals" type="Node2D" parent="."]
+position = Vector2(-48, 0)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+modulate = Color(1, 0, 0.966667, 1)
+position = Vector2(-48, 0)
+tile_map_data = PackedByteArray("AAD//wQABAAAAAQAAAAEAAQABAAAAAIAADA=")
+tile_set = ExtResource("9_w7ln1")
+
+[node name="RandomBonkPlayer" parent="." instance=ExtResource("10_8ora1")]

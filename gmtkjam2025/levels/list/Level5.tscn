@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://7e5mtdhl3ntk"]
+[gd_scene load_steps=11 format=4 uid="uid://7e5mtdhl3ntk"]
 
 [ext_resource type="Script" uid="uid://c2xkfh071ilnu" path="res://levels/level_template.gd" id="1_ymg2w"]
 [ext_resource type="Script" uid="uid://cu7ghb4pcli5g" path="res://levels/camera_shake.gd" id="2_13x4l"]
@@ -8,6 +8,8 @@
 [ext_resource type="TileSet" uid="uid://rms8er5m05td" path="res://levels/tilesets/boxes_spot_tileset.tres" id="6_w863x"]
 [ext_resource type="TileSet" uid="uid://cucyidbx3ps3m" path="res://levels/tilesets/collectibles_tileset.tres" id="7_r8u8f"]
 [ext_resource type="TileSet" uid="uid://ds7w1wpayltr7" path="res://levels/tilesets/snake_tail_tileset.tres" id="8_2p2iu"]
+[ext_resource type="TileSet" uid="uid://jcwvhc5ibt30" path="res://levels/tilesets/instructions_tileset.tres" id="9_w863x"]
+[ext_resource type="PackedScene" uid="uid://bvjrndkapokan" path="res://sounds/RandomBonkPlayer.tscn" id="10_r8u8f"]
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource("1_ymg2w")
@@ -53,3 +55,10 @@ tile_set = ExtResource("7_r8u8f")
 [node name="SnakeTailLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAQA=")
 tile_set = ExtResource("8_2p2iu")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+modulate = Color(1, 0, 0.966667, 1)
+tile_map_data = PackedByteArray("AAD8//v/BAAAAAAAAAD7//v/BAAAAAYAAAD9//v/BAAAAAYAAAD+//v/BAAAAAAAAAA=")
+tile_set = ExtResource("9_w863x")
+
+[node name="RandomBonkPlayer" parent="." instance=ExtResource("10_r8u8f")]

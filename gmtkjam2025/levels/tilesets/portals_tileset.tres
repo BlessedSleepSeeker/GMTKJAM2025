@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c7lwh5s144vmb" path="res://levels/tiles/BasePortal.tscn" id="1_gnr1n"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_r0xbt"]
-resource_name = "portals"
+resource_name = "<null>"
 scenes/1/scene = ExtResource("1_gnr1n")
 
 [resource]

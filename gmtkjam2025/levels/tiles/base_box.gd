@@ -8,6 +8,8 @@ class_name BaseBox
 @onready var deny_raycast: RayCast2D = $DenyRaycast
 @onready var push_raycast: RayCast2D = $PushRaycast
 
+@onready var pushed_sound: RandomStreamPlayer = $RandomStreamPlayer
+
 var self_history: Array[Dictionary] = []
 
 var directions = {
@@ -32,6 +34,7 @@ func can_be_pushed(direction: String) -> bool:
 func push(direction: String) -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(self, "position", position + directions[direction] * tile_size, move_animation_speed).set_trans(Tween.TRANS_CUBIC)
+	pushed_sound.play_random()
 	if push_raycast.is_colliding():
 		var collider: BaseBox = push_raycast.get_collider()
 		#await get_tree().create_timer(push_delay).timeout

@@ -1,7 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmkuupagbmuld"]
+[gd_scene load_steps=18 format=3 uid="uid://dmkuupagbmuld"]
 
 [ext_resource type="Script" uid="uid://cv1avphr16kfl" path="res://levels/tiles/base_collectible.gd" id="1_e2gr5"]
 [ext_resource type="Texture2D" uid="uid://dqglohmslxpfm" path="res://levels/tiles/textures/collectible.png" id="1_r0l5i"]
+[ext_resource type="PackedScene" uid="uid://b781jlikd2531" path="res://sounds/RandomStreamPlayer.tscn" id="3_83fcg"]
+[ext_resource type="AudioStream" uid="uid://dr2nk08kkelyn" path="res://sounds/sfx/apple/miam_pomme_1.wav" id="4_1134k"]
+[ext_resource type="AudioStream" uid="uid://bi5ubn8xlqt70" path="res://sounds/sfx/apple/miam_pomme_2.wav" id="5_2hn0r"]
+[ext_resource type="AudioStream" uid="uid://yagrexujd3dq" path="res://sounds/sfx/apple/miam_pomme_3.wav" id="6_3cocs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8b74c"]
 size = Vector2(4, 4)
@@ -98,4 +102,7 @@ modulate = Color(0.83, 0, 0, 1)
 sprite_frames = SubResource("SpriteFrames_in4j2")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.992888
+
+[node name="RandomStreamPlayer" parent="." instance=ExtResource("3_83fcg")]
+bus = &"SFX"
+streams = Array[AudioStream]([ExtResource("4_1134k"), ExtResource("5_2hn0r"), ExtResource("6_3cocs")])

@@ -7,6 +7,8 @@ class_name Level
 
 @export var snake_head_scene: PackedScene = preload("res://player/head/SnakeHead.tscn")
 
+@onready var bonk_audio: RandomStreamPlayer = $RandomBonkPlayer
+
 signal move_done
 signal move_cancelled
 signal currently_eaten_apples(amount: int)
@@ -40,6 +42,7 @@ func spawn_body(scene: PackedScene, _position: Vector2, _rotation: float, _turni
 
 func on_impossible_move(strenght: float) -> void:
 	camera.add_trauma(strenght)
+	bonk_audio.play_random()
 
 
 func save_state(_direction: String, _position: Vector2) -> void:

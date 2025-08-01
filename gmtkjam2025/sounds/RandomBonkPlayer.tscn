@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvjrndkapokan"]
+
+[ext_resource type="Script" uid="uid://c4as0vm1q36xh" path="res://sounds/random_stream_player.gd" id="1_tvhlf"]
+[ext_resource type="AudioStream" uid="uid://c580xo8ojl3s5" path="res://sounds/sfx/wall_bonk/bonk_mur_3.wav" id="2_8dn8w"]
+[ext_resource type="AudioStream" uid="uid://cixm3kwne8o0v" path="res://sounds/sfx/wall_bonk/bonk_mur_1.wav" id="3_sk2mx"]
+[ext_resource type="AudioStream" uid="uid://075sriendivb" path="res://sounds/sfx/wall_bonk/bonk_mur_2.wav" id="4_iinip"]
+
+[node name="RandomBonkPlayer" type="AudioStreamPlayer"]
+volume_db = -10.0
+bus = &"SFX"
+script = ExtResource("1_tvhlf")
+streams = Array[AudioStream]([ExtResource("2_8dn8w"), ExtResource("3_sk2mx"), ExtResource("4_iinip")])
+metadata/_custom_type_script = "uid://c4as0vm1q36xh"

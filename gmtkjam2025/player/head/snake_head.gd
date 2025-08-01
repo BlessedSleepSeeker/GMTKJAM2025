@@ -13,7 +13,11 @@ class_name SnakeHead
 @onready var obstacle_ray: RayCast2D = $ObstacleRayCast
 @onready var push_ray: RayCast2D = $PushRayCast
 @onready var tail_ray: RayCast2D = $TailRayCast
+@onready var portal_ray: RayCast2D = $PortalRayCast
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
+
+@onready var moving_audio: RandomStreamPlayer = $RandomMovePlayer
+@onready var tail_audio: AudioStreamPlayer = $TailAudioPlayer
 
 signal spawn_body(body_scene: PackedScene, position: Vector2, rotation: float, direction: String)
 signal impossible_move(strenght: float)
@@ -34,12 +38,12 @@ var rotation_values = {
 	"down": 180
 }
 
-var sprite_rotation: String = "up":
+@export var sprite_rotation: String = "up":
 	set(value):
 		sprite_rotation = value
 		rotate_sprite(value)
-var previous_direction: String = "up"
-var turn: String = ""
+@export var previous_direction: String = "up"
+@export var turn: String = ""
 
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
@@ -56,7 +60,7 @@ func _unhandled_input(_event):
 		if Input.is_action_pressed(action) && not is_moving:
 			move(action)
 
-
+@export var portal_movement: bool = false
 func move(direction: String) -> void:
 		if not check_move(direction):
 			impossible_move.emit(screen_shake_on_impossible_move)
@@ -75,15 +79,23 @@ func move(direction: String) -> void:
 		else:
 			turn = "straight"
 		spawn_body.emit(snake_body_scene, self.position, sprite.rotation_degrees, turn)
-		sprite_rotation = direction
-		var tween: Tween = create_tween()
-		tween.tween_property(self, "position", position + movement_actions[direction] * tile_size, move_animation_speed).set_trans(Tween.TRANS_CUBIC)
-		is_moving = true
-		previous_direction = direction
-		await tween.finished
-		is_moving = false
+		if portal_movement:
+			portal_ray.get_collider().traverse(self)
+			portal_movement = false
+		else:
+			sprite_rotation = direction
+			previous_direction = direction
+			var tween: Tween = create_tween()
+			tween.tween_property(self, "position", position + movement_actions[direction] * tile_size, move_animation_speed).set_trans(Tween.TRANS_CUBIC)
+			is_moving = true
+			await tween.finished
+			is_moving = false
 
 func check_move(direction: String) -> bool:
+	portal_ray.target_position = movement_actions[direction] * tile_size
+	portal_ray.force_raycast_update()
+	if portal_ray.is_colliding():
+		return check_portal()
 	obstacle_ray.target_position = movement_actions[direction] * tile_size
 	obstacle_ray.force_raycast_update()
 	if obstacle_ray.is_colliding():
@@ -104,6 +116,13 @@ func check_tail(direction: String) -> bool:
 	if tail_ray.is_colliding():
 		return check_if_boxes_on_spot()
 	return true
+
+func check_portal() -> bool:
+	if portal_ray.get_collider().can_be_traversed():
+		portal_movement = true
+		return true
+	return false
+
 
 func get_spots() -> Array:
 	return get_tree().get_nodes_in_group("box_spot")
@@ -147,6 +166,7 @@ func set_turn(direction: String) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is SnakeTail:
 		take_control_from_player = true
+		tail_audio.play()
 		animation_player.play("victory")
 		ate_tail.emit()
 	if area is BaseCollectible:
