@@ -83,6 +83,7 @@ func move(direction: String) -> void:
 			portal_ray.get_collider().traverse(self)
 			portal_movement = false
 		else:
+			moving_audio.play_random()
 			sprite_rotation = direction
 			previous_direction = direction
 			var tween: Tween = create_tween()

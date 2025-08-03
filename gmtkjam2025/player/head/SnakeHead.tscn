@@ -1,8 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cg575k08ivsdh"]
+[gd_scene load_steps=16 format=3 uid="uid://cg575k08ivsdh"]
 
 [ext_resource type="Script" uid="uid://ba1chicd3g2mi" path="res://player/head/snake_head.gd" id="1_ddiq0"]
 [ext_resource type="Texture2D" uid="uid://c3hqmdl51wrt4" path="res://player/sprites/snake_head_sheet.png" id="2_xk5vl"]
 [ext_resource type="PackedScene" uid="uid://b781jlikd2531" path="res://sounds/RandomStreamPlayer.tscn" id="3_440on"]
+[ext_resource type="AudioStream" uid="uid://tuiecsirsxs1" path="res://sounds/sfx/move/move_1.wav" id="4_curtm"]
+[ext_resource type="AudioStream" uid="uid://bvtt2hti5xxpg" path="res://sounds/sfx/move/move_2.wav" id="5_ab5g7"]
+[ext_resource type="AudioStream" uid="uid://crm4fpkhrg6hr" path="res://sounds/sfx/move/move_3.wav" id="6_t2vmx"]
 [ext_resource type="AudioStream" uid="uid://dvmc2p2fmluqb" path="res://sounds/sfx/miam_queue.wav" id="7_curtm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipcte"]
@@ -161,7 +164,7 @@ libraries = {
 
 [node name="RandomMovePlayer" parent="." instance=ExtResource("3_440on")]
 bus = &"SFX"
-no_repeat = false
+streams = Array[AudioStream]([ExtResource("4_curtm"), ExtResource("5_ab5g7"), ExtResource("6_t2vmx")])
 
 [node name="TailAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_curtm")

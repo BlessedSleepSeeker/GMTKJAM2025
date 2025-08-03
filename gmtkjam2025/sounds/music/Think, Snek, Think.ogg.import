@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://r56q7o0m5eny"
+path="res://.godot/imported/Think, Snek, Think.ogg-552f371fee8800a4bcc6ff5b91fc93ee.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/music/Think, Snek, Think.ogg"
+dest_files=["res://.godot/imported/Think, Snek, Think.ogg-552f371fee8800a4bcc6ff5b91fc93ee.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

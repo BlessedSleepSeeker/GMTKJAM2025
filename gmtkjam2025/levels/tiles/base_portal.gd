@@ -40,6 +40,8 @@ func traverse(head: SnakeHead) -> void:
 		head.position.x -= Vector2.ONE.x * tile_size / 2
 		head.position.y -= Vector2.ONE.y * tile_size / 2
 	
+	if twin.push_ray.is_colliding():
+		twin.push_ray.get_collider().push(twin.own_dir)
 	
 	head.sprite.rotation_degrees = twin.rotation_degrees
 	head.previous_direction = twin.own_dir
@@ -57,5 +59,5 @@ func can_be_traversed() -> bool:
 	if twin.obstacle_ray.is_colliding():
 		return false
 	if twin.push_ray.is_colliding():
-		return push_ray.get_collider().can_be_pushed()
+		return twin.push_ray.get_collider().can_be_pushed(twin.own_dir)
 	return true

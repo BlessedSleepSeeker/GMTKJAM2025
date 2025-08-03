@@ -1,10 +1,12 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://ds7w1wpayltr7"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://ds7w1wpayltr7"]
 
 [ext_resource type="PackedScene" uid="uid://snadviod86an" path="res://player/tail/SnakeTail.tscn" id="1_11jyk"]
+[ext_resource type="PackedScene" uid="uid://bwm24andy0f3g" path="res://player/body/SnakeBody.tscn" id="2_8dkdc"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_37mok"]
-resource_name = "snake_tail"
+resource_name = "snake_parts"
 scenes/1/scene = ExtResource("1_11jyk")
+scenes/2/scene = ExtResource("2_8dkdc")
 
 [resource]
 sources/0 = SubResource("TileSetScenesCollectionSource_37mok")

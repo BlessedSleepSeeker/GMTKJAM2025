@@ -3,6 +3,14 @@ class_name LevelManager
 
 @export var level_list: Array[PackedScene] = []
 
+@export var current_level_index: int = 0:
+	set(value):
+		if value < 0:
+			value = level_list.size() - 1
+		if value >= level_list.size():
+			value = 0
+		current_level_index = value
+
 @onready var bgm_player: AudioStreamPlayer = $BGMPlayer
 @onready var reset_player: AudioStreamPlayer = $ResetPlayer
 
@@ -15,15 +23,6 @@ signal remove_player_move(amount: int)
 signal ajust_apples(amount: int)
 
 var take_control_from_player: bool = false
-
-var current_level_index: int = 0:
-	set(value):
-		if value < 0:
-			value = level_list.size() - 1
-		if value >= level_list.size():
-			value = 0
-		current_level_index = value
-
 var current_level: Level = null
 
 func _ready():

@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=4 uid="uid://ba4jb7ibhob3l"]
+
+[ext_resource type="Script" uid="uid://c2xkfh071ilnu" path="res://levels/level_template.gd" id="1_eikoi"]
+[ext_resource type="Script" uid="uid://cu7ghb4pcli5g" path="res://levels/camera_shake.gd" id="2_221kp"]
+[ext_resource type="PackedScene" uid="uid://cg575k08ivsdh" path="res://player/head/SnakeHead.tscn" id="3_668vs"]
+[ext_resource type="TileSet" uid="uid://21ioic27tl8u" path="res://levels/tilesets/groud_tileset.tres" id="4_aefx8"]
+[ext_resource type="TileSet" uid="uid://cktqjonxsaeyi" path="res://levels/tilesets/boxes_tileset.tres" id="5_8mnjv"]
+[ext_resource type="TileSet" uid="uid://rms8er5m05td" path="res://levels/tilesets/boxes_spot_tileset.tres" id="6_2gg4o"]
+[ext_resource type="TileSet" uid="uid://cucyidbx3ps3m" path="res://levels/tilesets/collectibles_tileset.tres" id="7_xgx7g"]
+[ext_resource type="TileSet" uid="uid://ds7w1wpayltr7" path="res://levels/tilesets/snake_tail_tileset.tres" id="8_wbvxw"]
+[ext_resource type="PackedScene" uid="uid://bvjrndkapokan" path="res://sounds/RandomBonkPlayer.tscn" id="9_7tqao"]
+[ext_resource type="PackedScene" uid="uid://c7lwh5s144vmb" path="res://levels/tiles/BasePortal.tscn" id="9_638kc"]
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource("1_eikoi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(320, 180)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.137255, 0.137255, 1)
+
+[node name="CameraShake" type="Camera2D" parent="."]
+script = ExtResource("2_221kp")
+
+[node name="SnakeHead" parent="." instance=ExtResource("3_668vs")]
+unique_name_in_owner = true
+position = Vector2(25, 7)
+
+[node name="SnakeParts" type="Node2D" parent="."]
+
+[node name="GroundLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAACAPz/AAADAAAAAAACAP3/AAABAAEAAAACAP7/AAADAAEAAAACAP//AAADAAEAAAACAAAAAAADAAEAAAACAAEAAAADAAEAAAACAAIAAAADAAEAAAABAAMAAAACAAIAAAAAAAMAAAACAAAAAAD//wMAAAABAAAAAAD//wQAAAADAAIAAAD+/wQAAAACAAIAAAD9/wQAAAACAAIAAAD8/wQAAAACAAIAAAD7/wQAAAACAAAAAAD6/wQAAAACAAAAAAD5/wQAAAACAAAAAAD4/wQAAAACAAAAAAD4/wMAAAACAAEAAAD3/wIAAAADAAEAAAD3/wEAAAABAAAAAAD4/wEAAAADAAIAAAD4/wAAAAABAAEAAAD3//3/AAADAAEAAAD3//z/AAABAAAAAAD4//z/AAADAAIAAAD4//v/AAABAAAAAAD5//v/AAACAAAAAAD6//v/AAACAAIAAAD7//v/AAACAAAAAAD8//v/AAACAAIAAAD9//v/AAACAAIAAAD+//v/AAACAAAAAAD///v/AAADAAAAAAD///z/AAABAAIAAAAAAPz/AAACAAIAAAABAPz/AAACAAIAAAD4//7/AAAFAAAAAAD3//7/AAABAAIAAAD3/wMAAAADAAEAAAD3/wQAAAABAAIAAAACAAMAAAADAAIAAAD4////AAABAAEAAAD5//7/AAABAAMAAAA=")
+tile_set = ExtResource("4_aefx8")
+
+[node name="BoxesLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+//7/AAAAAAAAAQD8//3/AAAAAAAAAQD7//7/AAAAAAAAAQA=")
+tile_set = ExtResource("5_8mnjv")
+
+[node name="BoxesSpotLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD6/wAAAAAAAAAAAQD9////AAAAAAAAAQD5//z/AAAAAAAAAQA=")
+tile_set = ExtResource("6_2gg4o")
+
+[node name="CollectiblesLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+/wEAAAAAAAAAAQA=")
+tile_set = ExtResource("7_xgx7g")
+
+[node name="SnakeTailLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAQA=")
+tile_set = ExtResource("8_wbvxw")
+
+[node name="Portals" type="Node2D" parent="."]
+
+[node name="BasePortal" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_638kc")]
+modulate = Color(1, 0, 0.966667, 1)
+position = Vector2(-24, 18)
+twin = NodePath("../BasePortal2")
+
+[node name="BasePortal2" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_638kc")]
+modulate = Color(1, 0, 0.966667, 1)
+position = Vector2(-24, 30)
+rotation = 3.14159
+twin = NodePath("../BasePortal")
+
+[node name="RandomBonkPlayer" parent="." instance=ExtResource("9_7tqao")]

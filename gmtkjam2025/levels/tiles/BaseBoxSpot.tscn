@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cds2sl5qw74vn"]
+[gd_scene load_steps=9 format=3 uid="uid://cds2sl5qw74vn"]
 
 [ext_resource type="Script" uid="uid://dwx540rucm725" path="res://levels/tiles/base_box_spot.gd" id="1_uy7v0"]
 [ext_resource type="Texture2D" uid="uid://bm4dy4lxkd2qs" path="res://levels/tiles/textures/box_spot.png" id="2_bj8w7"]
+[ext_resource type="AudioStream" uid="uid://bk8x0hen3yxe2" path="res://sounds/sfx/move_box_spot.wav" id="3_qetyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iepxj"]
 size = Vector2(2, 2)
@@ -48,6 +49,10 @@ modulate = Color(0.93, 0.868, 0, 1)
 sprite_frames = SubResource("SpriteFrames_4lptg")
 autoplay = "default"
 frame_progress = 0.48974
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qetyy")
+bus = &"SFX"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

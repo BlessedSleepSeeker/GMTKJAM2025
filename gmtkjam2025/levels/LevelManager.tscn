@@ -1,22 +1,31 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmh6n3tw2cg7x"]
+[gd_scene load_steps=23 format=3 uid="uid://bmh6n3tw2cg7x"]
 
 [ext_resource type="Script" uid="uid://cdpbdhjt4drk4" path="res://levels/level_manager.gd" id="1_qim6b"]
+[ext_resource type="PackedScene" uid="uid://w67pjqffwo3c" path="res://levels/list/LevelTutoAdvanced.tscn" id="2_5j4fr"]
 [ext_resource type="PackedScene" uid="uid://by0fsbog3ruyd" path="res://levels/list/Level8.tscn" id="2_8e4sf"]
+[ext_resource type="PackedScene" uid="uid://by6l2pbtyenpr" path="res://levels/list/Level12.tscn" id="2_aegm0"]
 [ext_resource type="PackedScene" uid="uid://usjm111enrbc" path="res://levels/list/Level1.tscn" id="2_gi8jp"]
 [ext_resource type="PackedScene" uid="uid://d0d4b6r8d802g" path="res://levels/list/Level10.tscn" id="2_n31u4"]
 [ext_resource type="PackedScene" uid="uid://bu47p8xvl4env" path="res://levels/list/Level9.tscn" id="2_ngbb3"]
 [ext_resource type="PackedScene" uid="uid://b2ylx34hp0epw" path="res://levels/list/Level4.tscn" id="2_skpou"]
+[ext_resource type="PackedScene" uid="uid://bgta5eo55pw1a" path="res://levels/list/Level13.tscn" id="2_stuu4"]
 [ext_resource type="PackedScene" uid="uid://bcunttvp6u6wv" path="res://levels/list/LevelThankYou.tscn" id="2_uylu8"]
 [ext_resource type="PackedScene" uid="uid://d28h8ltbnbfsf" path="res://levels/list/Level6.tscn" id="2_v4u2h"]
+[ext_resource type="PackedScene" uid="uid://ba4jb7ibhob3l" path="res://levels/list/Level11.tscn" id="2_vh6hg"]
 [ext_resource type="PackedScene" uid="uid://csrgv7qmisf1l" path="res://levels/list/Level7.tscn" id="2_wg07h"]
 [ext_resource type="PackedScene" uid="uid://dajopr5fahrfa" path="res://levels/list/Level2.tscn" id="3_gi8jp"]
 [ext_resource type="PackedScene" uid="uid://iq7er3cruc8b" path="res://levels/list/Level3.tscn" id="4_yvu2n"]
 [ext_resource type="PackedScene" uid="uid://7e5mtdhl3ntk" path="res://levels/list/Level5.tscn" id="6_v4u2h"]
 [ext_resource type="AudioStream" uid="uid://8eer1lyykmib" path="res://sounds/sfx/reset.wav" id="12_475b4"]
+[ext_resource type="PackedScene" uid="uid://dxksr0086uh3n" path="res://levels/list/LevelDifficultyMedium3.tscn" id="12_j2wr8"]
+[ext_resource type="PackedScene" uid="uid://btwyjxe62j6er" path="res://levels/list/LevelDifficultyMedium4.tscn" id="13_3s0fn"]
+[ext_resource type="PackedScene" uid="uid://c1qm53ic7svxq" path="res://levels/list/LevelDifficultyMedium5.tscn" id="14_myywh"]
+[ext_resource type="PackedScene" uid="uid://bajb2hl4hx4xj" path="res://levels/list/LevelDifficultyMedium.tscn" id="17_mdmde"]
+[ext_resource type="PackedScene" uid="uid://cpw165ogyilf3" path="res://levels/list/LevelDifficultyMedium2.tscn" id="18_a0rui"]
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_qim6b")
-level_list = Array[PackedScene]([ExtResource("2_n31u4"), ExtResource("2_gi8jp"), ExtResource("4_yvu2n"), ExtResource("3_gi8jp"), ExtResource("2_skpou"), ExtResource("6_v4u2h"), ExtResource("2_v4u2h"), ExtResource("2_wg07h"), ExtResource("2_8e4sf"), ExtResource("2_ngbb3"), ExtResource("2_uylu8")])
+level_list = Array[PackedScene]([ExtResource("2_gi8jp"), ExtResource("4_yvu2n"), ExtResource("3_gi8jp"), ExtResource("2_skpou"), ExtResource("6_v4u2h"), ExtResource("2_v4u2h"), ExtResource("2_8e4sf"), ExtResource("2_5j4fr"), ExtResource("17_mdmde"), ExtResource("18_a0rui"), ExtResource("12_j2wr8"), ExtResource("13_3s0fn"), ExtResource("14_myywh"), ExtResource("2_wg07h"), ExtResource("2_ngbb3"), ExtResource("2_n31u4"), ExtResource("2_vh6hg"), ExtResource("2_aegm0"), ExtResource("2_stuu4"), ExtResource("2_uylu8")])
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"Music"

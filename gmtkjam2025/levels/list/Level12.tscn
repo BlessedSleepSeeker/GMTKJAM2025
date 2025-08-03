@@ -1,0 +1,188 @@
+[gd_scene load_steps=11 format=4 uid="uid://by6l2pbtyenpr"]
+
+[ext_resource type="Script" uid="uid://c2xkfh071ilnu" path="res://levels/level_template.gd" id="1_nphg4"]
+[ext_resource type="Script" uid="uid://cu7ghb4pcli5g" path="res://levels/camera_shake.gd" id="2_uq76o"]
+[ext_resource type="PackedScene" uid="uid://cg575k08ivsdh" path="res://player/head/SnakeHead.tscn" id="3_grw14"]
+[ext_resource type="TileSet" uid="uid://21ioic27tl8u" path="res://levels/tilesets/groud_tileset.tres" id="4_xdc56"]
+[ext_resource type="TileSet" uid="uid://cktqjonxsaeyi" path="res://levels/tilesets/boxes_tileset.tres" id="5_nssgg"]
+[ext_resource type="TileSet" uid="uid://rms8er5m05td" path="res://levels/tilesets/boxes_spot_tileset.tres" id="6_wye0c"]
+[ext_resource type="TileSet" uid="uid://cucyidbx3ps3m" path="res://levels/tilesets/collectibles_tileset.tres" id="7_83x4m"]
+[ext_resource type="TileSet" uid="uid://ds7w1wpayltr7" path="res://levels/tilesets/snake_tail_tileset.tres" id="8_swwdp"]
+[ext_resource type="PackedScene" uid="uid://bvjrndkapokan" path="res://sounds/RandomBonkPlayer.tscn" id="9_jcwac"]
+[ext_resource type="PackedScene" uid="uid://c7lwh5s144vmb" path="res://levels/tiles/BasePortal.tscn" id="9_r442p"]
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource("1_nphg4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(320, 180)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.137255, 0.137255, 1)
+
+[node name="CameraShake" type="Camera2D" parent="."]
+script = ExtResource("2_uq76o")
+
+[node name="SnakeHead" parent="." instance=ExtResource("3_grw14")]
+unique_name_in_owner = true
+position = Vector2(57, -57)
+
+[node name="SnakeParts" type="Node2D" parent="."]
+
+[node name="GroundLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD1//v/AAABAAEAAAD1//z/AAABAAEAAAD1//3/AAADAAEAAAD1//7/AAABAAEAAAD1////AAADAAEAAAD1/wAAAAABAAEAAAD1/wEAAAADAAEAAAD1/wIAAAADAAEAAAD1/wMAAAABAAEAAAD1/wQAAAABAAEAAAD1/wUAAAABAAIAAAD1//r/AAABAAAAAAD2//r/AAACAAIAAAD3//r/AAACAAIAAAD4//r/AAACAAAAAAD5//r/AAACAAAAAAD6//r/AAACAAIAAAD7//r/AAACAAAAAAD8//r/AAACAAAAAAD9//r/AAACAAIAAAD+//r/AAACAAAAAAD///r/AAACAAIAAAAAAPr/AAACAAAAAAABAPr/AAACAAAAAAACAPr/AAACAAIAAAACAAUAAAACAAAAAAABAAUAAAACAAIAAAAAAAUAAAACAAIAAAD//wUAAAACAAIAAAD+/wUAAAACAAAAAAD9/wUAAAACAAAAAAD8/wUAAAACAAAAAAD7/wUAAAACAAAAAAD6/wUAAAACAAAAAAD5/wUAAAACAAIAAAD4/wUAAAACAAIAAAD3/wUAAAACAAAAAAD2/wUAAAACAAAAAAD5////AAACAAEAAAADAPr/AAACAAIAAAAEAPr/AAADAAAAAAAEAPv/AAABAAEAAAAEAPz/AAADAAEAAAAEAP3/AAABAAEAAAAEAP7/AAADAAEAAAAEAP//AAABAAEAAAAEAAAAAAADAAEAAAAEAAEAAAABAAEAAAAEAAIAAAADAAEAAAAEAAMAAAADAAEAAAAEAAQAAAADAAEAAAAEAAUAAAADAAIAAAADAAUAAAACAAAAAAD9/wAAAAACAAEAAAA=")
+tile_set = ExtResource("4_xdc56")
+
+[node name="BoxesLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD3/wEAAAAAAAAAAQD6//7/AAAAAAAAAQD8/wEAAAAAAAAAAQAAAAAAAAAAAAAAAQD9////AAAAAAAAAQAAAP3/AAAAAAAAAQD+/wQAAAAAAAAAAQD6//3/AAAAAAAAAQABAAAAAAAAAAAAAQA=")
+tile_set = ExtResource("5_nssgg")
+
+[node name="BoxesSpotLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD4//7/AAAAAAAAAQD7/wIAAAAAAAAAAQD///7/AAAAAAAAAQAAAAIAAAAAAAAAAQD8////AAAAAAAAAQD9//3/AAAAAAAAAQD4/wAAAAAAAAAAAQD+/wEAAAAAAAAAAQACAP//AAAAAAAAAQA=")
+tile_set = ExtResource("6_wye0c")
+
+[node name="CollectiblesLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD2//v/AAAAAAAAAQD3//v/AAAAAAAAAQD4//v/AAAAAAAAAQD5//v/AAAAAAAAAQD6//v/AAAAAAAAAQD7//v/AAAAAAAAAQD8//v/AAAAAAAAAQD9//v/AAAAAAAAAQD+//v/AAAAAAAAAQD///v/AAAAAAAAAQAAAPv/AAAAAAAAAQABAPv/AAAAAAAAAQACAPv/AAAAAAAAAQADAPv/AAAAAAAAAQD2/wQAAAAAAAAAAQD3/wQAAAAAAAAAAQD4/wQAAAAAAAAAAQD5/wQAAAAAAAAAAQD6/wQAAAAAAAAAAQD7/wQAAAAAAAAAAQD8/wQAAAAAAAAAAQD9/wQAAAAAAAAAAQD//wQAAAAAAAAAAQAAAAQAAAAAAAAAAQABAAQAAAAAAAAAAQACAAQAAAAAAAAAAQADAAQAAAAAAAAAAQA=")
+tile_set = ExtResource("7_83x4m")
+
+[node name="SnakeTailLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAADAP3/AAAAAAAAAQA=")
+tile_set = ExtResource("8_swwdp")
+
+[node name="Portals" type="Node2D" parent="."]
+modulate = Color(1, 0, 0.966667, 1)
+
+[node name="BasePortal" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-152, 83)
+twin = NodePath("../BasePortal15")
+
+[node name="BasePortal2" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-136, 83)
+twin = NodePath("../BasePortal16")
+
+[node name="BasePortal3" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-120, 83)
+twin = NodePath("../BasePortal17")
+
+[node name="BasePortal4" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-104, 83)
+twin = NodePath("../BasePortal18")
+
+[node name="BasePortal5" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-88, 83)
+twin = NodePath("../BasePortal19")
+
+[node name="BasePortal6" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-72, 83)
+twin = NodePath("../BasePortal20")
+
+[node name="BasePortal7" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-56, 83)
+twin = NodePath("../BasePortal21")
+
+[node name="BasePortal8" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-40, 83)
+twin = NodePath("../BasePortal22")
+
+[node name="BasePortal9" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-24, 83)
+twin = NodePath("../BasePortal23")
+
+[node name="BasePortal10" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-8, 83)
+twin = NodePath("../BasePortal24")
+
+[node name="BasePortal11" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(8, 83)
+twin = NodePath("../BasePortal25")
+
+[node name="BasePortal12" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(24, 83)
+twin = NodePath("../BasePortal26")
+
+[node name="BasePortal13" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(40, 83)
+twin = NodePath("../BasePortal27")
+
+[node name="BasePortal14" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(56, 83)
+twin = NodePath("../BasePortal28")
+
+[node name="BasePortal15" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-152, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal")
+
+[node name="BasePortal16" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-136, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal2")
+
+[node name="BasePortal17" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-120, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal3")
+
+[node name="BasePortal18" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-104, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal4")
+
+[node name="BasePortal19" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-88, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal5")
+
+[node name="BasePortal20" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-72, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal6")
+
+[node name="BasePortal21" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-56, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal7")
+
+[node name="BasePortal22" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-40, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal8")
+
+[node name="BasePortal23" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-24, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal9")
+
+[node name="BasePortal24" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(-8, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal10")
+
+[node name="BasePortal25" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(8, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal11")
+
+[node name="BasePortal26" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(24, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal12")
+
+[node name="BasePortal27" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(40, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal13")
+
+[node name="BasePortal28" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_r442p")]
+position = Vector2(56, -83)
+rotation = 3.14159
+twin = NodePath("../BasePortal14")
+
+[node name="RandomBonkPlayer" parent="." instance=ExtResource("9_jcwac")]

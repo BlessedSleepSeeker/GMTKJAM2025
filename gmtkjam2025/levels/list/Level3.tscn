@@ -27,38 +27,42 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.133333, 0.137255, 0.137255, 1)
 
+[node name="IndicationLayer" type="TileMapLayer" parent="."]
+modulate = Color(1, 0, 0.966667, 1)
+tile_map_data = PackedByteArray("AAD///v/BAAAAAQAADA=")
+tile_set = ExtResource("9_ppx3p")
+
+[node name="Indication2Layer" type="TileMapLayer" parent="."]
+modulate = Color(1, 0, 0.966667, 1)
+tile_map_data = PackedByteArray("AAD9//z/AQAAAAAAAAAAAPz/AQAAAAAAAAD6//v/BAAAAAMAAAD7//v/BAAAAAQAAAD8//v/BAAAAAUAAAD9//v/BAAAAAYAAAD///v/BAAAAAQAAAAAAPv/BAAAAAgAAAA=")
+tile_set = ExtResource("9_ppx3p")
+
 [node name="CameraShake" type="Camera2D" parent="."]
 script = ExtResource("2_aq0x2")
 
 [node name="SnakeHead" parent="." instance=ExtResource("4_rpa70")]
 unique_name_in_owner = true
-position = Vector2(-8, -9)
+position = Vector2(-71, -9)
 
 [node name="SnakeParts" type="Node2D" parent="."]
 
 [node name="TileMapGround" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD7/wAAAAACAAEAAAD8////AAAEAAEAAAD8/wAAAAABAAIAAAD8/wEAAAACAAEAAAD8/wIAAAABAAAAAAD9/wEAAAACAAEAAAD9/wIAAAACAAIAAAD+/wEAAAACAAEAAAD+/wIAAAACAAIAAAD//wEAAAACAAEAAAD//wIAAAACAAIAAAAAAP//AAABAAEAAAAAAAAAAAABAAEAAAD8//7/AAABAAAAAAD7//z/AAACAAAAAAD8//z/AAACAAAAAAD9//z/AAACAAAAAAD+//z/AAACAAIAAAD///z/AAADAAAAAAAAAP7/AAADAAEAAAAAAAEAAAABAAEAAAD6/wIAAAABAAEAAAD6/wEAAAADAAEAAAD6/wAAAAABAAEAAAD6//z/AAACAAIAAAD4//3/AAACAAEAAAD5//z/AAABAAAAAAD5//3/AAABAAEAAAD5//7/AAABAAIAAAD6//7/AAADAAAAAAD6////AAABAAEAAAD6/wMAAAABAAIAAAD7/wMAAAACAAIAAAD8/wMAAAADAAIAAAD///3/AAABAAIAAAD9//7/AAADAAAAAAD9////AAAGAAEAAAD9/wAAAAADAAIAAAAAAAIAAAADAAIAAAAAAP3/AAADAAAAAAD/////AAACAAEAAAA=")
+tile_map_data = PackedByteArray("AAD7/wAAAAACAAEAAAD8/wEAAAACAAEAAAD8/wIAAAACAAIAAAD9/wEAAAACAAEAAAD9/wIAAAACAAIAAAD+/wEAAAACAAEAAAD+/wIAAAADAAAAAAD//wEAAAACAAEAAAAAAP//AAABAAEAAAAAAAAAAAABAAEAAAD7//z/AAACAAAAAAD8//z/AAACAAAAAAD9//z/AAACAAAAAAD+//z/AAACAAIAAAD///z/AAACAAIAAAAAAP7/AAABAAAAAAAAAAEAAAABAAEAAAD6/wEAAAADAAEAAAD6/wAAAAABAAEAAAD4//3/AAACAAEAAAD6////AAADAAEAAAD9//7/AAABAAAAAAD9////AAAEAAEAAAD9/wAAAAABAAIAAAAAAAIAAAADAAEAAAD/////AAACAAEAAAAAAPz/AAACAAIAAAABAPz/AAADAAAAAAABAP3/AAABAAEAAAABAP7/AAADAAIAAAD6//z/AAABAAAAAAD6//3/AAADAAEAAAD6//7/AAABAAEAAAD+//7/AAADAAAAAAD+////AAAGAAEAAAD+/wAAAAADAAIAAAD+/wMAAAABAAIAAAD//wMAAAACAAAAAAAAAAMAAAADAAIAAAD7/wIAAAACAAIAAAD6/wIAAAABAAIAAAA=")
 tile_set = ExtResource("3_xmsnr")
 
 [node name="TileMapBoxes" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD9//3/AAAAAAAAAQD7//7/AAAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD9//3/AAAAAAAAAQD///7/AAAAAAAAAQA=")
 tile_set = ExtResource("5_6fwje")
 
 [node name="TileMapBoxesSpot" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD6//3/AAAAAAAAAQD7/wIAAAAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD//wIAAAAAAAAAAQAAAP3/AAAAAAAAAQA=")
 tile_set = ExtResource("6_ppx3p")
 
 [node name="TileMapCollectibles" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD9/wEAAAAAAAAAAQA=")
 tile_set = ExtResource("7_s5nw8")
 
 [node name="TileMapSnakeTail" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD7/wAAAAAAAAAAAQA=")
 tile_set = ExtResource("8_es7bc")
-
-[node name="IndicationLayer" type="TileMapLayer" parent="."]
-modulate = Color(1, 0, 0.966667, 1)
-tile_map_data = PackedByteArray("AAD9//z/AQAAAAAAAAD6//z/AQAAAAAAAAD6//7/AgAAAAAAAAD6/wIAAgAAAAAAAAD6//v/BAAAAAMAAAD7//v/BAAAAAQAAAD8//v/BAAAAAUAAAD9//v/BAAAAAYAAAD5/wEABAAAAAYAAAD5/wAABAAAAAUAAAD5////BAAAAAQAAAD5//7/BAAAAAMAAAA=")
-tile_set = ExtResource("9_ppx3p")
 
 [node name="RandomBonkPlayer" parent="." instance=ExtResource("10_s5nw8")]

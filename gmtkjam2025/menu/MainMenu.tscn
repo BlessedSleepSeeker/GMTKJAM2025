@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://du4xhpvf3ifj2" path="res://menu/base_theme.tres" id="1_0gkbj"]
 [ext_resource type="Script" uid="uid://bskskr0plcsag" path="res://menu/main_menu.gd" id="2_ciyvu"]
-[ext_resource type="AudioStream" uid="uid://db4btocvxj0yg" path="res://sounds/music/ProjectSnek_Major.ogg" id="3_rbtx8"]
+[ext_resource type="AudioStream" uid="uid://y3gwb6pwgkq" path="res://sounds/music/ProjectSnek_Major(1).ogg" id="3_usddi"]
 [ext_resource type="TileSet" uid="uid://21ioic27tl8u" path="res://levels/tilesets/groud_tileset.tres" id="4_wn5o1"]
 [ext_resource type="TileSet" uid="uid://bmsqc6wghc2nc" path="res://levels/tilesets/snake_textures.tres" id="5_kh61s"]
 [ext_resource type="TileSet" uid="uid://cucyidbx3ps3m" path="res://levels/tilesets/collectibles_tileset.tres" id="6_i4dmh"]
@@ -83,7 +83,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_rbtx8")
+stream = ExtResource("3_usddi")
 autoplay = true
 bus = &"Music"
 

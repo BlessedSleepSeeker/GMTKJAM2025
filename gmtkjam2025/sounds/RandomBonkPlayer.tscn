@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://075sriendivb" path="res://sounds/sfx/wall_bonk/bonk_mur_2.wav" id="4_iinip"]
 
 [node name="RandomBonkPlayer" type="AudioStreamPlayer"]
-volume_db = -10.0
 bus = &"SFX"
 script = ExtResource("1_tvhlf")
 streams = Array[AudioStream]([ExtResource("2_8dn8w"), ExtResource("3_sk2mx"), ExtResource("4_iinip")])

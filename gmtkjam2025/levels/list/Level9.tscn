@@ -57,19 +57,19 @@ tile_set = ExtResource("8_42fxp")
 
 [node name="BasePortal" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_n2g18")]
 modulate = Color(0, 1, 1, 1)
-position = Vector2(-9, -36)
+position = Vector2(-9, -35)
 rotation = 3.14159
 twin = NodePath("../BasePortal2")
 
 [node name="BasePortal2" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_n2g18")]
 modulate = Color(0, 1, 1, 1)
-position = Vector2(-88, -52)
-rotation = 3.14159
+position = Vector2(-88, 35)
 twin = NodePath("../BasePortal")
 
 [node name="BasePortal3" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_n2g18")]
 modulate = Color(1, 0, 0.966667, 1)
-position = Vector2(-88, 36)
+position = Vector2(-88, -51)
+rotation = 3.14159
 twin = NodePath("../BasePortal4")
 
 [node name="BasePortal4" parent="Portals" node_paths=PackedStringArray("twin") instance=ExtResource("9_n2g18")]
