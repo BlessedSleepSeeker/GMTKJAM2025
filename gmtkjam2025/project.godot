@@ -13,7 +13,8 @@ config_version=5
 config/name="Snekoban"
 run/main_scene="uid://bljvtgw65utvv"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://b6t6t07wis1bo"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
